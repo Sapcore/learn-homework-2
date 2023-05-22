@@ -1,3 +1,5 @@
+import csv
+
 """
 
 Домашнее задание №2
@@ -10,12 +12,28 @@
 
 """
 
+
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    friends = [
+        {'name': 'Alex', 'age': 28, 'job': 'Engineer'},
+        {'name': 'Jane', 'age': 30, 'job': 'Doctor'},
+        {'name': 'Johnnie', 'age': 26, 'job': 'Student'},
+        {'name': 'Bob', 'age': 47, 'job': 'Janitor'},
+        {'name': 'Mickey', 'age': 20, 'job': 'Rock-star'},
+        {'name': 'Gregg', 'age': 45, 'job': 'Driver'}
+    ]
+
+    with open('people.csv', 'w', encoding='utf-8', newline='') as f:
+        fields = ['name', 'age', 'job']
+        writer = csv.DictWriter(f, fields, delimiter=',')
+        writer.writeheader()
+        for friend in friends:
+            writer.writerow(friend)
+
 
 if __name__ == "__main__":
     main()
