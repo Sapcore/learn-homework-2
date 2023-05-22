@@ -17,9 +17,8 @@ def print_days():
     """
     d_today = datetime.date.today()
     delta_1 = datetime.timedelta(days=1)
-    delta_30 = datetime.timedelta(days=30)
     d_yesterday = d_today - delta_1
-    d_30days = d_today - delta_30
+    d_30days = d_today - delta_1 * 30
     print('Yesterday: ', d_yesterday)
     print('Today: ', d_today)
     print('30 days ago: ', d_30days)
